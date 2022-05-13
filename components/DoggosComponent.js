@@ -3,7 +3,7 @@ import { FlatList } from "react-native";
 import { ListItem } from "react-native-elements";
 import { DOGS } from "../shared/dogs";
 
-export default class Directory extends Component {
+export default class Doggos extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,18 +12,18 @@ export default class Directory extends Component {
   }
 
   static navigationOptions = {
-    title: "Directory",
+    title: "Doggos",
   };
 
   render() {
     const { navigate } = this.props.navigation;
-    const renderDirectoryItem = ({ item }) => {
+    const renderDoggosItem = ({ item }) => {
       return (
         <ListItem
           title={item.name}
           subtitle={item.description}
           onPress={() => navigate("DogInfo", { dogId: item.id })}
-          leftAvatar={{ source: require("./images/react-lake.jpg") }}
+          rightAvatar={{ source: require("./images/react-lake.jpg") }}
         />
       );
     };
@@ -31,7 +31,7 @@ export default class Directory extends Component {
     return (
       <FlatList
         data={this.state.dogs}
-        renderItem={renderDirectoryItem}
+        renderItem={renderDoggosItem}
         keyExtractor={(item) => item.id.toString()}
       />
     );

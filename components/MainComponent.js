@@ -1,20 +1,20 @@
 import React, { Component } from "react";
 import Home from "./HomeComponent";
-import Directory from "./DirectoryComponent";
+import Doggos from "./DoggosComponent";
 import DogInfo from "./DogInfoComponent";
 import Constants from "expo-constants";
 import { View, Platform } from "react-native";
 import { createStackNavigator } from "react-navigation-stack";
-import { createDrawerNavigator } from "react-navigation-drawer";
+import { createBottomTabNavigator } from "react-navigation-tabs";
 import { createAppContainer } from "react-navigation";
 
-const DirectoryNavigator = createStackNavigator(
+const DoggosNavigator = createStackNavigator(
   {
-    Directory: { screen: Directory },
+    Doggos: { screen: Doggos },
     DogInfo: { screen: DogInfo },
   },
   {
-    initialRouteName: "Directory",
+    initialRouteName: "Doggos",
     defaultNavigationOptions: {
       headerStyle: {
         backgroundColor: "#5637DD",
@@ -44,17 +44,17 @@ const HomeNavigator = createStackNavigator(
   }
 );
 
-const MainNavigator = createDrawerNavigator(
+const MainNavigator = createBottomTabNavigator(
   {
     Home: { screen: HomeNavigator },
-    Directory: { screen: DirectoryNavigator },
+    Doggos: { screen: DoggosNavigator },
   },
   {
-    drawerBackgroundColor: "#CEC8FF",
+    tabBackgroundColor: "#CEC8FF",
   }
 );
 
-const AppNavigator = createAppContainer(MainNavigator);
+const TabNavigator = createAppContainer(MainNavigator);
 
 export default class Main extends Component {
   render() {
@@ -65,7 +65,7 @@ export default class Main extends Component {
           paddingTop: Platform.OS === "ios" ? 0 : Constants.statusBarHeight,
         }}
       >
-        <AppNavigator />
+        <TabNavigator />
       </View>
     );
   }

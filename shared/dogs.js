@@ -30,7 +30,7 @@ export const DOGS = [
     size: "Small",
     color: "Black",
     featured: false,
-    description: "Thinks she's a Bear",
+    description: "Acts like a baby bear",
   },
   {
     id: 3,
