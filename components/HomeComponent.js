@@ -36,15 +36,10 @@ export default class Home extends Component {
   render() {
     return (
       <ScrollView>
-        <RenderItem item={this.state.dogs.filter((dog) => dog.featured)[0]} />
-        <RenderItem
-          item={
-            this.state.promotions.filter((promotion) => promotion.featured)[0]
-          }
-        />
-        <RenderItem
-          item={this.state.partners.filter((partner) => partner.featured)[0]}
-        />
+        <Text>Recently Met:</Text>
+        <RenderItem item={this.state.dogs[this.state.dogs.length - 1]} />
+        <RenderItem item={this.state.dogs[this.state.dogs.length - 2]} />
+        <RenderItem item={this.state.dogs[this.state.dogs.length - 3]} />
       </ScrollView>
     );
   }
